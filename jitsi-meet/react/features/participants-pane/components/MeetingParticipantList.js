@@ -38,7 +38,7 @@ export const MeetingParticipantList = () => {
     const isMouseOverMenu = useRef(false);
     const participants = useSelector(getParticipants, _.isEqual);
     const [ raiseContext, setRaiseContext ] = useState<RaiseContext>(initialState);
-    const [filteredParticipants, setFilteredCParticipants] = useState([]);
+    const [filteredParticipants, setFilteredParticipants] = useState([]);
     const [search, setSearch] = useState('');
     const { t } = useTranslation();
 
@@ -87,7 +87,7 @@ export const MeetingParticipantList = () => {
     }, [ lowerMenu ]);
 
     useEffect(() => {
-      setFilteredCParticipants(
+      setFilteredParticipants(
         participants.filter((participant) =>
           participant.name.toLowerCase().includes(search.toLowerCase())
         )
