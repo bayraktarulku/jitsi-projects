@@ -102,7 +102,7 @@ export const MeetingParticipantList = () => {
             autoFocus = { true }
             id = 'searchParticipant'
             onChange={(e) => setSearch(e.target.value)}
-            placeholder = { t('Katılımcı Ara') }
+            placeholder = { t('Search Participant') }
             shouldFitContainer = { true }
             type = 'text'/>
         <div>
