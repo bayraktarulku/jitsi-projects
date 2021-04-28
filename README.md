@@ -8,7 +8,7 @@
 
 
 ##### filter by text
-Updated on [MeetingParticipantList.js] (https://github.com/bayraktarulku/jitsi-activeSpeaker/blob/main/jitsi-meet/react/features/participants-pane/components/MeetingParticipantList.js) file
+Updated on [MeetingParticipantList](https://github.com/bayraktarulku/jitsi-activeSpeaker/blob/main/jitsi-meet/react/features/participants-pane/components/MeetingParticipantList.js) file
 
 useState created and assigned [] as an initial value.
 
