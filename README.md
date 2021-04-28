@@ -8,7 +8,7 @@
 
 
 ##### filter by text
-Updated on [MeetingParticipantList.js] (https://github.com/bayraktarulku/jitsi-activeSpeaker/blob/main/jitsi-meet/react/features/participants-pane/components/MeetingParticipantList.js) file
+Updated on [MeetingParticipantList.js](https://github.com/bayraktarulku/jitsi-activeSpeaker/blob/main/jitsi-meet/react/features/participants-pane/components/MeetingParticipantList.js) file
 
 useState. It's a function exposed by react itself
 useEffect: The component becomes a function and fetch gets called inside
