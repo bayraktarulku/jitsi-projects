@@ -28,11 +28,20 @@ useEffect(() => {
 ```
 
 ```
- <FieldTextStateless
+<FieldTextStateless
     autoFocus = { true }
     id = 'searchParticipant'
     onChange={(e) => setSearch(e.target.value)}
     placeholder = { t('Search Participant') }
     shouldFitContainer = { true }
     type = 'text'/>
+<div>
+    {filteredParticipants.map((p) => (
+        <MeetingParticipantItem
+            isHighlighted = { raiseContext.participant === p }
+            key = { p.id }
+            onContextMenu = { toggleMenu(p) }
+            onLeave = { lowerMenu }
+            participant = { p } /> : null
+    ))}
 ```
