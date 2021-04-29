@@ -1,12 +1,59 @@
-#### jitsi-activeSpeaker
-##### active speaker's priority
-- order the tileView
-- order the filmstrip
+# Jitsi-activeSpeaker
 
+## Active Speaker's Priority
 
+Updated on [Filmstrip](https://github.com/bayraktarulku/jitsi-projects/blob/main/activeSpeaker/jitsi-meet/react/features/filmstrip/components/web/Filmstrip.js) file.
 
-##### filter by text
-Updated on [MeetingParticipantList.js](https://github.com/bayraktarulku/jitsi-activeSpeaker/blob/main/jitsi-meet/react/features/participants-pane/components/MeetingParticipantList.js) file
+Assign initial value created for the dominantSpeaker.
+The dominant participant is searched for among remote participants, and if there is an active speaker, it is assigned to this variable.
+```
+let dominantSpeaker = null;
+dominantSpeaker = remoteParticipants.filter( p => p.dominantSpeaker === true && p !== localParticipant)[0];
+```
+
+* Order the TileView
+
+    If tileView is active and there is a dominant speaker, first create the dominant speaker then list the non-dominant remote participants.
+
+    ![Order the TileView](../images/tileview.gif)
+
+* Order the Filmstrip
+
+    If TileView is passive and there is a dominant speaker, create the dominant speaker after list the non-dominant remote participants.
+
+    ![Order the Filmstrip](../images/filmstrip.gif)
+
+```
+// if tileView is active
+{
+    tileViewActive && dominantSpeaker ?
+    <Thumbnail
+        key = { `remote_${dominantSpeaker.id}` }
+        participantID = { dominantSpeaker.id } /> : null
+}
+{
+    remoteParticipants.map(
+        p => (
+            !p.dominantSpeaker ?
+            <Thumbnail
+                key = { `remote_${p.id}` }
+                participantID = { p.id } /> : null
+        ))
+}
+// if tileView is passive
+{
+    !tileViewActive && dominantSpeaker ?
+    <Thumbnail
+        key = { `remote_${dominantSpeaker.id}` }
+        participantID = { dominantSpeaker.id } /> : null
+}
+```
+
+## Participant Search
+
+![Participant Search](../images/search.gif)
+
+Updated on [MeetingParticipantList.js](https://github.com/bayraktarulku/jitsi-projects/blob/main/activeSpeaker/jitsi-meet/react/features/participants-pane/components/MeetingParticipantList.js) file.
 
 useState. It's a function exposed by react itself
 useEffect: The component becomes a function and fetch gets called inside
