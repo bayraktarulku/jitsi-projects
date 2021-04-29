@@ -1,7 +1,7 @@
+# Jitsi-activeSpeaker
 ```This repo created  for a theme of  Jitsi Hackathon```
 
-#### jitsi-activeSpeaker
-##### active speaker's priority
+## Active Speaker's Priority
 Updated on [Filmstrip](https://github.com/bayraktarulku/jitsi-activeSpeaker/blob/main/jitsi-meet/react/features/filmstrip/components/web/Filmstrip.js) file.
 
 Assign initial value created for the dominantSpeaker.
@@ -46,9 +46,9 @@ dominantSpeaker = remoteParticipants.filter( p => p.dominantSpeaker === true && 
 }
 ```
 
-##### filter by text
+## Participant Search
 ![search](images/search.gif)
-Updated on [MeetingParticipantList.js](https://github.com/bayraktarulku/jitsi-activeSpeaker/blob/main/jitsi-meet/react/features/participants-pane/components/MeetingParticipantList.js) file
+Updated on [MeetingParticipantList.js](https://github.com/bayraktarulku/jitsi-activeSpeaker/blob/main/jitsi-meet/react/features/participants-pane/components/MeetingParticipantList.js) file.
 
 useState. It's a function exposed by react itself
 useEffect: The component becomes a function and fetch gets called inside
