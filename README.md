@@ -13,12 +13,12 @@ dominantSpeaker = remoteParticipants.filter( p => p.dominantSpeaker === true && 
 - Order the TileView
 
     If tileView is active and there is a dominant speaker, first create the dominant speaker then list the non-dominant remote participants.
-    (images/tileview.gif)
+    ![tileview](images/tileview.gif)
 
 - Order the Filmstrip
 
     If TileView is passive and there is a dominant speaker, create the dominant speaker after list the non-dominant remote participants.
-    (images/filmstrip.gif)
+    ![filmstrip](images/filmstrip.gif)
 
 ```
 // if tileView is active
@@ -47,7 +47,7 @@ dominantSpeaker = remoteParticipants.filter( p => p.dominantSpeaker === true && 
 ```
 
 ##### filter by text
-(images/search.gif)
+![search](images/search.gif)
 Updated on [MeetingParticipantList.js](https://github.com/bayraktarulku/jitsi-activeSpeaker/blob/main/jitsi-meet/react/features/participants-pane/components/MeetingParticipantList.js) file
 
 useState. It's a function exposed by react itself
