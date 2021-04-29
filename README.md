@@ -11,10 +11,12 @@ let dominantSpeaker = null;
 dominantSpeaker = remoteParticipants.filter( p => p.dominantSpeaker === true && p !== localParticipant)[0];
 ```
 - Order the TileView
-If tileView is active and there is a dominant speaker, first create the dominant speaker then list the non-dominant remote participants.
+
+    If tileView is active and there is a dominant speaker, first create the dominant speaker then list the non-dominant remote participants.
 
 - Order the Filmstrip
-If TileView is passive and there is a dominant speaker, create the dominant speaker after list the non-dominant remote participants.
+
+    If TileView is passive and there is a dominant speaker, create the dominant speaker after list the non-dominant remote participants.
 
 ```
 // if tileView is active
