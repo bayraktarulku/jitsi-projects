@@ -72,7 +72,7 @@ Added accessibilityLabel and tooltip names in [main.json](https://github.com/bay
         "emojiReaction": "Select emoji",
 ```        
 
-##### 2.4 Call from Toolbox.js
+##### 2.4 Call from Toolbox
 
 <p align="center">
   <img src="../images/toolbar.png">
