@@ -1,7 +1,7 @@
 // @flow
 
 import React from 'react';
-import { Dialog } from '../../../base/dialog';
+import { Dialog, hideDialog } from '../../../base/dialog';
 import { translate } from '../../../base/i18n';
 
 
@@ -127,7 +127,7 @@ function EmojiReactionDialog() {
       }
       defaultUrl = APP.store.getState()['features/base/settings'].avatarURL;
       APP.conference.commands.sendCommand("avatar-url", { value: url });
-
+      APP.store.dispatch(hideDialog());
       setTimeout(() => {
         APP.conference.commands.sendCommand("avatar-url", { value: defaultUrl })
       }, timeout);
