@@ -12,50 +12,93 @@ function EmojiReactionDialog() {
     let timer = null;
     let defaultUrl = undefined;
 
-    const emojiBaseUrl = 'https://jitsi-hacks.cketti.eu/';
+    const emojiBaseUrl = 'https://cdn.joypixels.com/products/previews/O6D7BMG8R2DMMNC4LLZH/';
 
     const emojis = [
       {
-        cssName: 'thumbs-up',
-        url: emojiBaseUrl + 'thumbs_up.png'
+        url: emojiBaseUrl + '2301_K2D71kEFdlh7edrAnz37xqUN6YtWKPWV.gif'
       },
       {
-        cssName: 'thumbs-down',
-        url: emojiBaseUrl + 'thumbs_down.png'
+        url: emojiBaseUrl + '2368_YN8wAWhgKpcWwZ9z3kp92yi5XYbTs41M.gif'
       },
       {
-        cssName: 'zipper-mouth-face',
-        url: emojiBaseUrl + 'zipper_mouth_face.png'
+        url: emojiBaseUrl + '2299_D8w9epwATnx7nUUSfL2bolEOtQeYSIsj.gif'
       },
       {
-        cssName: 'raising-hands',
-        url: emojiBaseUrl + 'raising_hands.png'
+        url: emojiBaseUrl + '2302_0i9FuobGWAIV6HGA1DnYpwjV0C7xsczY.gif'
       },
       {
-        cssName: 'hourglass',
-        url: emojiBaseUrl + 'hourglass.png'
+        url: emojiBaseUrl + '2305_biSFwtwQo6OpAc8fZNL0sRSTtJXE4hMT.gif'
       },
       {
-        cssName: 'framed-picture',
-        url: emojiBaseUrl + 'framed_picture.png'
+        url: emojiBaseUrl + '2311_1hGcwOlOK6CDJaItpeRaYzO1Lh8DPFFK.gif'
       },
       {
-        cssName: 'clapping-hands',
-        url: emojiBaseUrl + 'clapping_hands.png'
+        url: emojiBaseUrl + '2294_v9gou58f95fvxtzRcwiev0PQ7qOfTH0R.gif'
       },
       {
-        cssName: 'waving-hand',
-        url: emojiBaseUrl + 'waving_hand.png'
-      }
+        url: emojiBaseUrl + '2324_b569aOoF2SsK5hFJJlu9wyaO5GP8rviH.gif'
+      },
+      {
+        url: emojiBaseUrl + '2322_Mp092btDRSEdBd8Vr6CN3mCfAfojUL5A.gif'
+      },
+      {
+        url: emojiBaseUrl + '2316_HIkAdOffUQSW0Q8Or1RWID8zJXydFTVy.gif'
+      },
+      {
+        url: emojiBaseUrl + '2313_CBIZSYf2FIf54UaSSwbIVrJLn5ocTiRO.gif'
+      },
+      {
+        url: emojiBaseUrl + '2320_MbuJVKxLjnyPj99OZhv3X2a7re4UdZ6B.gif'
+      },
+      {
+        url: emojiBaseUrl + '2330_WFboV6pFArbEbK6RAMXT9xxhWf7aLaUx.gif'
+      },
+      {
+        url: emojiBaseUrl + '2325_HMMg8klxSQK2Kbiydo224dm3RT2DeHgM.gif'
+      },
+      {
+        url: emojiBaseUrl + '2315_u2lwfmcJ0d46yPleVzD4EgmRvziESzUV.gif'
+      },
+      {
+        url: emojiBaseUrl + '2372_UfDDs2sTsTLiu6LJE7m3aCTkLX9fztVZ.gif'
+      },
+      {
+        url: emojiBaseUrl + '2307_SKZQnrg7Ziqu1gI59XIeG42vOXDu44jW.gif'
+      },
+      {
+        url: emojiBaseUrl + '2309_eLd4s2npRD1HBbtT9IcXwy0RHYugMLjo.gif'
+      },
+      {
+        url: emojiBaseUrl + '2369_5OGJpE7Qgy2l7rjmGH6LyWLltQzw3moz.gif'
+      },
+      {
+        url: emojiBaseUrl + '2332_RCzlB4jrR8ETuzqKU0wVXmu1qBQP5SuN.gif'
+      },
+      {
+        url: emojiBaseUrl + '2405_BmRDXqJsxy7WsAcX11FOzO53HMWkZ63O.gif'
+      },
+      {
+        url: emojiBaseUrl + '2400_2JoADz74WYIcKBdYxLTTAboVaqCKEAbq.gif'
+      },
+      {
+        url: emojiBaseUrl + '2402_F52AqOaPz52RLBTiwBtZUMhlkm4mahDl.gif'
+      },
+      {
+        url: emojiBaseUrl + '2403_w0DOW7F5wDNbkNkPi88v9zgHneqZ0pQj.gif'
+      },
+      {
+        url: emojiBaseUrl + '2411_HZWARHWk0TImR0UBwvuHRUXPorcBwWs1.gif'
+      },
     ];
 
     function addEmojiImageStyles() {
       $('head').append(`
         <style>
           .emoji-button {
-            width: 70px;
-            height: 70px;
-            background-size: 50px 50px;
+            width: 62px;
+            height: 62px;
+            background-size: 55px 55px;
             border: 1px solid #aaa;
             background-color: rgba(255, 255, 255, 0.1);
             background-repeat: no-repeat;
@@ -75,7 +118,6 @@ function EmojiReactionDialog() {
             padding: 0;
             margin: 0;
           }
-
       </style>`);
     }
 
@@ -94,11 +136,10 @@ function EmojiReactionDialog() {
     addEmojiImageStyles();
 
     for (const [index, emoji] of emojis.entries()) {
-        const emojiClass = 'emoji-button emoji-' + emoji['cssName']
         items.push(<button
                       type='button'
                       key={index}
-                      className={emojiClass}
+                      className='emoji-button'
                       src={emoji['url']}
                       style={{backgroundImage: `url(${emoji['url']})`}}
                       onClick={() => onEmojiButtonClick(emoji['url'])}>
