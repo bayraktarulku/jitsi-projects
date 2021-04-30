@@ -6,8 +6,9 @@
 - [2. Project Stages](#2-project-stages)
   - [2.1 Create Emoji Button](#21-create-emoji-button)
   - [2.2 Add SVG for Button](#22-add-svg-for-button)
-  - [2.3 Call from Toolbox.js](#23-call-from-toolbox.js)
-  - [2.4 Create Dialog Component](#24-create-dialog-component)
+  - [2.3 Configs and Language Customizations](#23-configs-and-language-ustomizations)
+  - [2.4 Call from Toolbox.js](#24-call-from-toolbox.js)
+  - [2.5 Create Dialog Component](#25-create-dialog-component)
 
 #### 1. About
 
@@ -33,8 +34,37 @@ and export that from [index](https://github.com/bayraktarulku/jitsi-projects/blo
 ```
 export { default as IconEmojiReaction } from './emoji-reaction.svg';
 ```
- 
-##### 2.3 Call from Toolbox.js
+
+##### 2.3 Configs and Language Customizations
+Add button name in the [functions.web.js](https://github.com/bayraktarulku/jitsi-projects/blob/main/emoji-reaction/jitsi-meet/react/features/toolbox/functions.web.js#L31)
+```
+  case width >= WIDTH.FIT_10_ICONS: {
+      buttons = isMobile
+          ? [ 'chat', 'raisehand', 'tileview', 'participants-pane', 'overflow' ]
+          : [ 'desktop', 'chat', 'raisehand', 'tileview', 'participants-pane', 'overflow', 'emoji-reaction' ];
+      break;
+  }
+```
+Then, Add button to [TOOLBAR_BUTTONS](https://github.com/bayraktarulku/jitsi-projects/blob/main/emoji-reaction/jitsi-meet/react/features/base/config/constants.js#L22)
+```
+export const TOOLBAR_BUTTONS = [
+    'microphone', 'camera', 'closedcaptions', 'desktop', 'embedmeeting', 'fullscreen',
+    'fodeviceselection', 'hangup', 'profile', 'chat', 'recording',
+    'livestreaming', 'etherpad', 'sharedvideo', 'shareaudio', 'settings', 'raisehand',
+    'videoquality', 'filmstrip', 'participants-pane', 'feedback', 'stats', 'shortcuts',
+    'tileview', 'select-background', 'download', 'help', 'mute-everyone', 'mute-video-everyone',
+    'security', 'toggle-camera', 'emoji-reaction'
+];
+```
+Added accessibilityLabel and tooltip names in (main.json)[https://github.com/bayraktarulku/jitsi-projects/blob/main/emoji-reaction/jitsi-meet/lang/main.json#L742]
+```
+  "toolbar": {
+        "accessibilityLabel": {
+          "emojiReaction": "Select emoji",
+        }
+        "emojiReaction": "Select emoji",
+```        
+##### 2.4 Call from Toolbox.js
 Firstly, import this three files in [Toolbox.js](https://github.com/bayraktarulku/jitsi-projects/blob/main/emoji-reaction/jitsi-meet/react/features/toolbox/components/web/Toolbox.js).
 
 ```
@@ -73,19 +103,6 @@ if (this._shouldShowButton('emoji-reaction')) {
 }
 ```
 
-##### 2.4 Create Dialog Component
+##### 2.5 Create Dialog Component
 Create a [EmojiReactionDialog](https://github.com/bayraktarulku/jitsi-projects/blob/main/emoji-reaction/jitsi-meet/react/features/toolbox/components/web/EmojiReactionDialog.js) for the dialog that will open when we click the button. Here we have defined emoji urls. You can change these urls if you want. Emoji reaction time is 30 seconds. You can also change this time.
 
-
-
-
-
-Toolbar Buttons Control
-https://github.com/bayraktarulku/jitsi-projects/blob/main/emoji-reaction/jitsi-meet/react/features/toolbox/functions.web.js
-
-Added config 
-
-https://github.com/bayraktarulku/jitsi-projects/blob/main/emoji-reaction/jitsi-meet/react/features/base/config/constants.js
-
-Added lang 
-https://github.com/bayraktarulku/jitsi-projects/blob/main/emoji-reaction/jitsi-meet/lang/main.json
