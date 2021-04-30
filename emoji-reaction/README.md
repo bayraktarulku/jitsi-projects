@@ -15,6 +15,8 @@
 [This project](https://platform-euhack21.bemyapp.com/#/projects/608acbb203a87f0019ef3f6a) started developing on April 26th at [Winning over the classroom with Jitsi](https://euhack21.bemyapp.com/) Hackathon.
 We have developed a project to offer a solution that allows users to avoid disruptions by allowing them to communicate non-verbal responses and responses.
 
+![Emoji Reaction](../images/emoji.gif)
+
 #### 2. Project Stages
 
 ##### 2.1 Create Emoji Button
