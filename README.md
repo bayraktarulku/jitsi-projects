@@ -1,5 +1,5 @@
 #### This repo created  for a theme of  Jitsi Hackathon
-` You can follow the developments to be made on the jitsi-meet project from this repo. And you can give suggestions for improvement. `
+` You can follow the developments to be made on the jitsi-meet project from this repo. And you can give suggestions for development. `
 
 Projects
 - [activeSpeaker](https://github.com/bayraktarulku/jitsi-projects/tree/main/activeSpeaker)
