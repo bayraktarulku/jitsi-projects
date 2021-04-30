@@ -6,7 +6,7 @@
 - [2. Project Stages](#2-project-stages)
   - [2.1 Create Emoji Button](#21-create-emoji-button)
   - [2.2 Add SVG for Button](#22-add-svg-for-button)
-  - [2.3 Configs and Language Customizations](#23-configs-and-language-ustomizations)
+  - [2.3 Configs and Language Customizations](#23-configs-and-language-customizations)
   - [2.4 Call from Toolbox.js](#24-call-from-toolbox.js)
   - [2.5 Create Dialog Component](#25-create-dialog-component)
 
