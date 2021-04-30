@@ -1,4 +1,4 @@
-# Jitsi-Emoji-Reaction
+# Jitsi-Emoji-Reaction :smile: :flushed: :sweat_smile:
 
 ### Table of contents
 
@@ -45,7 +45,7 @@ Add button name in the [functions.web.js](https://github.com/bayraktarulku/jitsi
       break;
   }
 ```
-Then, Add button to [TOOLBAR_BUTTONS](https://github.com/bayraktarulku/jitsi-projects/blob/main/emoji-reaction/jitsi-meet/react/features/base/config/constants.js#L22)
+Then, add button to [TOOLBAR_BUTTONS](https://github.com/bayraktarulku/jitsi-projects/blob/main/emoji-reaction/jitsi-meet/react/features/base/config/constants.js#L22)
 ```
 export const TOOLBAR_BUTTONS = [
     'microphone', 'camera', 'closedcaptions', 'desktop', 'embedmeeting', 'fullscreen',
