@@ -60,7 +60,7 @@ export const TOOLBAR_BUTTONS = [
 ];
 ```
 
-Added accessibilityLabel and tooltip names in (main.json)[https://github.com/bayraktarulku/jitsi-projects/blob/main/emoji-reaction/jitsi-meet/lang/main.json#L742]
+Added accessibilityLabel and tooltip names in [main.json](https://github.com/bayraktarulku/jitsi-projects/blob/main/emoji-reaction/jitsi-meet/lang/main.json#L742).
 
 ```
   "toolbar": {
