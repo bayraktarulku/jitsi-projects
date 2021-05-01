@@ -5,11 +5,15 @@
 - ___[Active Speaker](https://github.com/bayraktarulku/jitsi-projects/tree/main/activeSpeaker)___
  
   ![activeSpeaker](images/activeSpeaker.jpeg)
+  
+  Project's hackaton link: https://platform-euhack21.bemyapp.com/#/projects/6082d2112f90ac001965e417
  
  
 - ___[Emoji Reaction](https://github.com/bayraktarulku/jitsi-projects/tree/main/emoji-reaction)___
  
   ![Emoji Reaction](images/emoji.jpg)
+  
+  Project's hackaton link: https://platform-euhack21.bemyapp.com/#/projects/608acbb203a87f0019ef3f6a
   
   
 ## Contributors
