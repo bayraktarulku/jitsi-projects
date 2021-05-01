@@ -89,7 +89,7 @@ export const MeetingParticipantList = () => {
     useEffect(() => {
       setFilteredParticipants(
         participants.filter((participant) =>
-          participant.name.toLowerCase().includes(search.toLowerCase())
+          search ? participant.name.toLowerCase().includes(search.toLowerCase()) : participant
         )
       );
     }, [search, participants]);
