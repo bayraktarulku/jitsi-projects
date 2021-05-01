@@ -1,4 +1,5 @@
-# Jitsi-activeSpeaker
+![activeSpeaker](../images/activeSpeakerTitle.png)
+
 [This project](https://platform-euhack21.bemyapp.com/#/projects/6082d2112f90ac001965e417) started developing on April 26th at [Winning over the classroom with Jitsi Hackathon](https://euhack21.bemyapp.com/).
 We've made improvements to find the activeSpeaker and make it stand out in crowded meetings.
 
