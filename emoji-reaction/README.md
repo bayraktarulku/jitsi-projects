@@ -1,4 +1,4 @@
-# Jitsi-Emoji-Reaction :smile: :flushed: :sweat_smile:
+![Emoji](../images/emojiReactionTitle.png)
 
 ### Table of contents
 
