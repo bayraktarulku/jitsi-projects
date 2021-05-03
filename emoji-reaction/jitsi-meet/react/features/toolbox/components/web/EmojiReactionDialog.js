@@ -121,9 +121,29 @@ function EmojiReactionDialog() {
       </style>`);
     }
 
+    APP.conference.commands.addCommandListener("CONFETTI", e => {
+        window.confetti(JSON.parse(e.value));
+    });
+
+    var options = {
+        particleCount: 100,
+        spread: 75,
+        origin: {
+            x: 0.5 + (Math.random() - 0.5) * 0.1,
+            y: 0.6
+        },
+        angle: 90 + (Math.random() - 0.5) * 15,
+        ticks: 250,
+        scalar: 1.2,
+        dispersion: 0.6
+    };
+
     function onEmojiButtonClick(url) {
       if (timer != null) {
           clearTimeout(timer);
+      }
+      if (url === emojiBaseUrl + '2313_CBIZSYf2FIf54UaSSwbIVrJLn5ocTiRO.gif') {
+        APP.conference.commands.sendCommandOnce("CONFETTI", { value: JSON.stringify(options) })
       }
       defaultUrl = APP.store.getState()['features/base/settings'].avatarURL;
       const isVideoMuted = APP.conference.isLocalVideoMuted();
