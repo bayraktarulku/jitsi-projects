@@ -126,6 +126,7 @@ function EmojiReactionDialog() {
           clearTimeout(timer);
       }
       defaultUrl = APP.store.getState()['features/base/settings'].avatarURL;
+      const isVideoMuted = APP.conference.isLocalVideoMuted();
       !isVideoMuted ? APP.conference.muteVideo(true) : '';
       APP.conference.commands.sendCommand("avatar-url", { value: url });
       APP.store.dispatch(hideDialog());
