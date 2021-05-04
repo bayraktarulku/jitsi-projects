@@ -255,6 +255,7 @@ class Toolbox extends Component<Props> {
         this._onShortcutToggleRaiseHand = this._onShortcutToggleRaiseHand.bind(this);
         this._onShortcutToggleScreenshare = this._onShortcutToggleScreenshare.bind(this);
         this._onShortcutToggleVideoQuality = this._onShortcutToggleVideoQuality.bind(this);
+        this._onShortcutEmojiReaction = this._onShortcutEmojiReaction.bind(this);
         this._onToolbarOpenFeedback = this._onToolbarOpenFeedback.bind(this);
         this._onToolbarToggleParticipantsPane = this._onToolbarToggleParticipantsPane.bind(this);
         this._onToolbarOpenKeyboardShortcuts = this._onToolbarOpenKeyboardShortcuts.bind(this);
@@ -314,6 +315,11 @@ class Toolbox extends Component<Props> {
                 character: 'W',
                 exec: this._onShortcutToggleTileView,
                 helpDescription: 'toolbar.tileViewToggle'
+            },
+            this._shouldShowButton('emoji-reaction') && {
+                character: 'E',
+                exec: this._onShortcutEmojiReaction,
+                helpDescription: 'toolbar.emojiReaction'
             }
         ];
 
@@ -701,6 +707,13 @@ class Toolbox extends Component<Props> {
             }));
 
         this._doToggleScreenshare();
+    }
+
+
+    _onShortcutEmojiReaction: () => void;
+    _onShortcutEmojiReaction() {
+
+        this._onToolbarEmojiReaction();
     }
 
     _onTabIn: () => void;
