@@ -9,6 +9,7 @@
   - [2.3 Configs and Language Customizations](#23-configs-and-language-customizations)
   - [2.4 Call from Toolbox](#24-call-from-toolbox)
   - [2.5 Create Dialog Component](#25-create-dialog-component)
+  - [2.6 Shortcut for Emoji Dialog](#26-Shortcut-for-emoji-dialog)
 
 #### 1. About
 
@@ -70,7 +71,7 @@ Added accessibilityLabel and tooltip names in [main.json](https://github.com/bay
           "emojiReaction": "Select emoji",
         }
         "emojiReaction": "Select emoji",
-```        
+```
 
 ##### 2.4 Call from Toolbox
 
@@ -124,3 +125,31 @@ if (this._shouldShowButton('emoji-reaction')) {
 ##### 2.5 Create Dialog Component
 
 Create a [EmojiReactionDialog](https://github.com/bayraktarulku/jitsi-projects/blob/main/emoji-reaction/jitsi-meet/react/features/toolbox/components/web/EmojiReactionDialog.js) for the dialog that will open when we click the button. Here we have defined emoji urls. You can change these urls if you want. Emoji reaction time is 30 seconds. You can also change this time.
+
+
+##### 2.6 Shortcut for Emoji Dialog
+Bind event handler in [Toolbox.js](https://github.com/bayraktarulku/jitsi-projects/blob/main/emoji-reaction/jitsi-meet/react/features/toolbox/components/web/Toolbox.js)
+
+```
+this._onShortcutEmojiReaction = this._onShortcutEmojiReaction.bind(this);
+```
+
+Sets the keyboard shortcut to trigger the Toolbar Buttons action
+
+```
+this._shouldShowButton('emoji-reaction') && {
+    character: 'E',
+    exec: this._onShortcutEmojiReaction,
+    helpDescription: 'toolbar.emojiReaction'
+}
+```
+
+Dispatches an action for opening the modal for showing available keyboard shortcuts
+
+```
+_onShortcutEmojiReaction: () => void;
+_onShortcutEmojiReaction() {
+
+    this._onToolbarEmojiReaction();
+}
+```
