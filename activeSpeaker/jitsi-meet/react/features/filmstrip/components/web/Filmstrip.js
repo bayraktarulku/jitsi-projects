@@ -185,7 +185,11 @@ class Filmstrip extends Component <Props> {
             toolbar = this._renderToggleButton();
         }
         let dominantSpeaker = null;
-        dominantSpeaker = remoteParticipants.filter( p => p.dominantSpeaker === true && p !== localParticipant)[0];
+        let dominantSpeakerIndex = null;
+        dominantSpeakerIndex = remoteParticipants.findIndex( p => p.dominantSpeaker === true && p !== localParticipant);
+        if (tileViewActive && dominantSpeakerIndex > 2 || !tileViewActive) {
+                dominantSpeaker = remoteParticipants.filter( p => p.dominantSpeaker === true && p !== localParticipant)[0];
+        }
         return (
             <div
                 className = { `filmstrip ${this.props._className}` }
@@ -226,7 +230,7 @@ class Filmstrip extends Component <Props> {
                             {
                                 remoteParticipants.map(
                                     p => (
-                                        !p.dominantSpeaker ?
+                                        !p.dominantSpeaker || (tileViewActive && dominantSpeakerIndex <= 2 && p.dominantSpeaker)  ?
                                         <Thumbnail
                                             key = { `remote_${p.id}` }
                                             participantID = { p.id } /> : null
@@ -248,8 +252,15 @@ class Filmstrip extends Component <Props> {
                         </div>
                     </div>
                 </div>
+        {APP.conference._room ? APP.conference._room.on('conference.dominantSpeaker', this._onDominantSpeakerChanged) : null}
             </div>
         );
+    }
+
+    _onDominantSpeakerChanged() {
+    const tileViewEnabled = APP.store.getState()['features/video-layout'].tileViewEnabled
+        const element = document.getElementById('filmstripRemoteVideos')
+        tileViewEnabled ? element.scrollTo(0,0) : element.scrollTo(0, -element.scrollHeight)
     }
 
     /**
