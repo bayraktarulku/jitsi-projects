@@ -258,7 +258,7 @@ class Filmstrip extends Component <Props> {
     }
 
     _onDominantSpeakerChanged() {
-    const tileViewEnabled = APP.store.getState()['features/video-layout'].tileViewEnabled
+        const tileViewEnabled = APP.store.getState()['features/video-layout'].tileViewEnabled
         const element = document.getElementById('filmstripRemoteVideos')
         tileViewEnabled ? element.scrollTo(0,0) : element.scrollTo(0, -element.scrollHeight)
     }
