@@ -7,11 +7,20 @@ We've made improvements to find the activeSpeaker and make it stand out in crowd
 
 Updated on [Filmstrip](https://github.com/bayraktarulku/jitsi-projects/blob/main/activeSpeaker/jitsi-meet/react/features/filmstrip/components/web/Filmstrip.js) file.
 
-Assign initial value created for the dominantSpeaker.
-The dominant participant is searched for among remote participants, and if there is an active speaker, it is assigned to this variable.
+Assign initial value created for the dominantSpeaker and dominantSpeakerIndex.
+The dominantSpeakerIndex is searched for among remote participants.
+If tileView is active, dominantSpeakerIndex is greater than 20 or tileView is passive,
+the dominant participant is searched for among remote participants, and if there is an active speaker,
+it is assigned to this variable.
+
 ```
 let dominantSpeaker = null;
-dominantSpeaker = remoteParticipants.filter( p => p.dominantSpeaker === true && p !== localParticipant)[0];
+let dominantSpeakerIndex = null;
+dominantSpeakerIndex = remoteParticipants.findIndex( p => p.dominantSpeaker === true && p !== localParticipant);
+if (tileViewActive && dominantSpeakerIndex > 20 || !tileViewActive) {
+    dominantSpeaker = remoteParticipants.filter( p => p.dominantSpeaker === true && p !== localParticipant)[0];
+}
+
 ```
 
 * Order the TileView
@@ -37,7 +46,7 @@ dominantSpeaker = remoteParticipants.filter( p => p.dominantSpeaker === true && 
 {
     remoteParticipants.map(
         p => (
-            !p.dominantSpeaker ?
+            !p.dominantSpeaker || (tileViewActive && dominantSpeakerIndex <= 20 && p.dominantSpeaker)  ?
             <Thumbnail
                 key = { `remote_${p.id}` }
                 participantID = { p.id } /> : null
@@ -52,6 +61,19 @@ dominantSpeaker = remoteParticipants.filter( p => p.dominantSpeaker === true && 
 }
 ```
 
+* Trigger _onDominantSpeakerChanged when dominant speaker changes.
+```
+{ APP.conference._room ? APP.conference._room.on('conference.dominantSpeaker', this._onDominantSpeakerChanged) : null}
+```
+* Move scroll to top when dominant speaker changes.
+
+```
+_onDominantSpeakerChanged() {
+    const tileViewEnabled = APP.store.getState()['features/video-layout'].tileViewEnabled
+    const element = document.getElementById('filmstripRemoteVideos')
+    tileViewEnabled ? element.scrollTo(0,0) : element.scrollTo(0, -element.scrollHeight)
+}
+```
 ## Participant Search
 
 ![Participant Search](../images/search.gif)
